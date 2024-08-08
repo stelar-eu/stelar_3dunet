@@ -16,8 +16,11 @@ We perform spatio-temporal data slicing and sampling as the dataset is as large 
 Run the below code :
 
 `export CUDA_VISIBLE_DEVICES=1`
+
 `cd stelar_3dunet/`
+
 `conda activate inn`
+
 `python traiing_data_per_crop.py --chosen_crop_types 27`
 
 # Ensamble of models
