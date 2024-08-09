@@ -51,13 +51,14 @@ pip uninstall scikit-image
 
 '''
 
-export CUDA_VISIBLE_DEVICES=1
+export CUDA_VISIBLE_DEVICES=0
 conda deactivate
 conda deactivate
 cd stelar_3dunet/
 source spt19/bin/activate
-python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected_more_data.py --crop_1 18 --crop_2 19 --crop_3 20
-python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected_more_data.py --crop_1 14 --crop_2 15 --crop_3 16
+python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected_more_data.py --crop_1 21 --crop_2 23 --crop_3 27
+
+python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected_more_data.py --crop_1 28 --crop_2 30 --crop_3 32
 
 
 export CUDA_VISIBLE_DEVICES=1
