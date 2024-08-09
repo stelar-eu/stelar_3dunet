@@ -51,6 +51,10 @@ We train each of the models in the ensamble separately
 
 `python outputs_and_ground_truth_saving.py`
 
+### To replicate the quantitative outputs
+
+Check : `ensamble_quantitative analysis_of_results.ipynb`
+
 # Ensamble of models
 
 ## Experiment 0
