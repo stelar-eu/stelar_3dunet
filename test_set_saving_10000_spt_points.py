@@ -3,6 +3,7 @@ import tensorflow as tf
 import keras
 print(tf.__version__)
 print(keras.__version__)
+import tifffile
 
 
 #Make sure the GPU is available. 
@@ -51,38 +52,34 @@ pip uninstall scikit-image
 
 '''
 
+crop_types_all_list = [ 1,  2,  3,  4,  5,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 23, 27, 28, 30, 32, 33, 34, 35, 36, 37, 40, 41]
+
+
 export CUDA_VISIBLE_DEVICES=0
 conda deactivate
 conda deactivate
 cd stelar_3dunet/
 source spt19/bin/activate
-python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected_more_data.py --crop_1 36 --crop_2 37 --crop_3 40
+python3 test_set_saving_10000_spt_points.py --crop_1 1 --crop_2 2 --crop_3 3
+python3 test_set_saving_10000_spt_points.py --crop_1 4 --crop_2 5 --crop_3 7
+python3 test_set_saving_10000_spt_points.py --crop_1 8 --crop_2 9 --crop_3 10
+python3 test_set_saving_10000_spt_points.py --crop_1 11 --crop_2 12 --crop_3 13
+python3 test_set_saving_10000_spt_points.py --crop_1 14 --crop_2 15 --crop_3 16
+python3 test_set_saving_10000_spt_points.py --crop_1 18 --crop_2 19 --crop_3 20
 
 
-python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected_more_data.py --crop_1 37 --crop_2 40 --crop_3 41
-
- , , 
-
-export CUDA_VISIBLE_DEVICES=1
-conda deactivate
-conda deactivate
-cd stelar_3dunet/
-source spt19/bin/activate
-python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected_more_data.py --crop_1 4 --crop_2 5 --crop_3 7
-python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected_more_data.py --crop_1 33 --crop_2 34 --crop_3 35
-python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected_more_data.py --crop_1 36 --crop_2 37 --crop_3 40
-python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected_more_data.py --crop_1 37 --crop_2 40 --crop_3 41
-
-
-****** memory error issues *************
+chosen_crop_types_list_list = [[1, 2, 3], [4, 5, 7], [8,  9, 10], [11, 12, 13], [14, 15, 16], [18, 19, 20], [21, 23, 27], [28, 30, 32], [33, 34, 35], [36, 37, 40], [37, 40, 41]]
 
 export CUDA_VISIBLE_DEVICES=1
 conda deactivate
 conda deactivate
 cd stelar_3dunet/
 source spt19/bin/activate
-export TF_GPU_ALLOCATOR=cuda_malloc_async
-python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected_more_data.py --crop_1 1 --crop_2 2 --crop_3 3
+python3 test_set_saving_10000_spt_points.py --crop_1 21 --crop_2 23 --crop_3 27
+python3 test_set_saving_10000_spt_points.py --crop_1 28 --crop_2 30 --crop_3 32
+python3 test_set_saving_10000_spt_points.py --crop_1 33 --crop_2 34 --crop_3 35
+python3 test_set_saving_10000_spt_points.py --crop_1 36 --crop_2 37 --crop_3 40
+python3 test_set_saving_10000_spt_points.py --crop_1 37 --crop_2 40 --crop_3 41
 
 
 '''
@@ -130,6 +127,12 @@ chosen_crop_types_list = [cr_1, cr_2, cr_3]
 
 crop_types_all_list = [ 1,  2,  3,  4,  5,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 23, 27, 28, 30, 32, 33, 34, 35, 36, 37, 40, 41]
 
+
+print("observe")
+
+print("vista_crop_dict[cr_1]", vista_crop_dict[cr_1])
+print("vista_crop_dict[cr_2]", vista_crop_dict[cr_2])
+print("vista_crop_dict[cr_3]", vista_crop_dict[cr_3])
 
 print("vista_crop_dict[chosen_crop_types_list[1]], vista_crop_dict[chosen_crop_types_list[1]], vista_crop_dict[chosen_crop_types_list[1]]", vista_crop_dict[chosen_crop_types_list[0]], vista_crop_dict[chosen_crop_types_list[1]], vista_crop_dict[chosen_crop_types_list[2]])
 
@@ -242,55 +245,16 @@ print("final input_mask.shape", input_mask.shape)
 #all_input_img = 0
 #all_input_mask = 0
 
-
+# this should not be done whwen you want ground truth for inference. This is only for training.
+print("1 : input_mask.shape", input_mask.shape) 
+input_mask_all = input_mask.copy()
 input_mask[input_mask<chosen_crop_types_list[0]]=0
 input_mask[input_mask>chosen_crop_types_list[-1]]=0
 for i in range(3):
     input_mask[input_mask==chosen_crop_types_list[i]]=i+1
 
-###########################################################################################################
+print("2 : input_mask.shape", input_mask.shape) 
 
-unique_elements, element_counts = np.unique(input_mask, return_counts=True)
-
-print("2 : unique_elements, element_counts", unique_elements, element_counts)
-
-# selected_counts = np.array([element_counts[0], element_counts[np.where(unique_elements == chosen_crop_types_list[0])[0][0]], element_counts[np.where(unique_elements == chosen_crop_types_list[1])[0][0]], element_counts[np.where(unique_elements == chosen_crop_types_list[2])[0][0]]])
-
-#selected_counts = np.array([element_counts[0], element_counts[np.where(unique_elements == 1)[0][0]], element_counts[np.where(unique_elements == 2)[0][0]], element_counts[np.where(unique_elements == 3)[0][0]]])
-
-selected_counts = np.array(element_counts)
-
-selected_counts_fractions = selected_counts/np.sum(selected_counts)
-selected_counts_fractions_f = selected_counts_fractions**(-1)
-weights = selected_counts_fractions_f/np.sum(selected_counts_fractions_f)
-
-del selected_counts_fractions_f
-del selected_counts_fractions
-del selected_counts
-del element_counts
-del unique_elements
-
-
-print("weights", weights)
-print("weights[0]", weights[0])
-print("weights[1]", weights[1])
-print("weights[2]", weights[2])
-print("weights[3]", weights[3])
-
-###########################################################################################################
-
-
-
-
-
-#input_mask = np.repeat(input_mask[:, np.newaxis, :, :], repeats=64, axis=1)
-
-#input_img[input_img==0] = np.median(input_img)
-
-'''for m in range(64):
-    for i in range(64):
-        for j in range(64):
-            input_img[m,:,i,j][input_img[m,:,i,j]==0] = np.median(input_img[m,:,i,j]).astype(np.uint8)'''
 
 lai_uniques = np.unique(input_img)
 
@@ -303,112 +267,38 @@ lai_uniques = 0
 n_classes=4
 
 
-
 train_img = np.stack((input_img,)*3, axis=-1)
 train_mask = np.expand_dims(input_mask, axis=4)
+print("3 : train_mask.shape", train_mask.shape) 
+
 train_mask_cat = to_categorical(train_mask, num_classes=n_classes)
+print("4 : train_mask_cat.shape", train_mask_cat.shape)
 
 X_train, X_test, y_train, y_test = train_test_split(train_img, train_mask_cat, test_size = 0.10, random_state = 0)
 
-X_train = X_train[:9000]
-y_train = y_train[:9000]
+del X_train
+del y_train
+
+d1, d2, d3, y_test_all = train_test_split(train_img, input_mask_all, test_size = 0.10, random_state = 0)
+
+del d1
+del d2
+del d3
+
+#X_train = X_train[:9000]
+#y_train = y_train[:9000]
 X_test = X_test[:1000]
 y_test = y_test[:1000]
+y_test_all = y_test_all[:1000]
 
-print("X_train.shape", X_train.shape)
+
+#print("X_train.shape", X_train.shape)
 print("X_test.shape", X_test.shape)
-print("y_train.shape", y_train.shape)
+#print("y_train.shape", y_train.shape)
 print("y_test.shape", y_test.shape)
+print("y_test_all.shape", y_test_all.shape)
 
-
-del train_mask_cat
-del train_mask
-del train_img
-del input_img
-del input_mask
-del input_img0 
-del input_mask0
-del input_img1
-del input_mask1
-del input_img2
-del input_mask2
-del input_img3
-del input_mask3
-del input_img4
-del input_mask4
-del input_img5
-del input_mask5
-
-
-'''train_img = 0
-train_mask_cat = 0
-train_mask = 0
-input_mask = 0
-input_img = 0'''
-
-
-
-def dice_coefficient(y_true, y_pred):
-    smoothing_factor = 1
-    flat_y_true = K.flatten(y_true)
-    flat_y_pred = K.flatten(y_pred)
-    return (2. * K.sum(flat_y_true * flat_y_pred) + smoothing_factor) / (K.sum(flat_y_true) + K.sum(flat_y_pred) + smoothing_factor)
-
-def dice_coefficient_loss(y_true, y_pred):
-    return 1 - dice_coefficient(y_true, y_pred)
-
-
-
-
-encoder_weights = 'imagenet'
-BACKBONE = 'vgg16'  #Try vgg16, efficientnetb7, inceptionv3, resnet50
-activation = 'softmax'
-patch_size = 64
-n_classes = 4
-channels=3
-
-LR = 0.0001
-
-#LR = 0.000001
-
-optim = keras.optimizers.Adam(LR)
-
-dice_loss = sm.losses.DiceLoss(class_weights=np.array([weights[0], weights[1], weights[2], weights[3]])) 
-focal_loss = sm.losses.CategoricalFocalLoss()
-total_loss = dice_loss + (1 * focal_loss)
-
-
-metrics = [sm.metrics.IOUScore(threshold=0.5), sm.metrics.FScore(threshold=0.5)]
-
-
-preprocess_input = sm.get_preprocessing(BACKBONE)
-
-X_train_prep = preprocess_input(X_train)
-X_test_prep = preprocess_input(X_test)
-
-del X_train
-del X_test
-
-
-#Define the model. Here we use Unet but we can also use other model architectures from the library.
-model = sm.Unet(BACKBONE, classes=n_classes, 
-                input_shape=(patch_size, patch_size, patch_size, channels), 
-                encoder_weights=encoder_weights,
-                activation=activation)
-
-model.compile(optimizer = optim, loss=total_loss, metrics=metrics)
-print(model.summary())
-
-
-print("Did fitting start ?")
-print("X_train_prep.shape", X_train_prep.shape)
-#Fit the model
-history=model.fit(X_train_prep, 
-          y_train,
-          batch_size=8, 
-          epochs=num_epochs,
-          verbose=1,
-          validation_data=(X_test_prep, y_test))
-
-
-model.save('/home/luser/stelar_3dunet/storage/saved_model_bias_miti_class_weights_corrected_more_data/3D_unet_res_labels_'+vista_crop_dict[chosen_crop_types_list[0]]+'_'+vista_crop_dict[chosen_crop_types_list[1]]+'_'+vista_crop_dict[chosen_crop_types_list[2]]+'_num_epocs_'+str(num_epochs)+'.h5')
+# now save the test set
+tifffile.imsave('/home/luser/stelar_3dunet/storage/test_sets_of_subsets_all/X_test'+'_contains'+vista_crop_dict[cr_1]+'_'+vista_crop_dict[cr_2]+'_'+vista_crop_dict[cr_3]+'_.tif', X_test)
+tifffile.imsave('/home/luser/stelar_3dunet/storage/test_sets_of_subsets_all/y_test'+'_contains'+vista_crop_dict[cr_1]+'_'+vista_crop_dict[cr_2]+'_'+vista_crop_dict[cr_3]+'_.tif', y_test)
+tifffile.imsave('/home/luser/stelar_3dunet/storage/test_sets_of_subsets_all/y_test_all'+'_contains'+vista_crop_dict[cr_1]+'_'+vista_crop_dict[cr_2]+'_'+vista_crop_dict[cr_3]+'_.tif', y_test_all)

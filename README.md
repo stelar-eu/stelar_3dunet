@@ -45,6 +45,29 @@ We train each of the models in the ensamble separately
 
 `python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected_more_data.py --crop_1 28 --crop_2 30 --crop_3 32`
 
+### How to save the test sets of all the subsets of data with which the models are trained 
+
+`export CUDA_VISIBLE_DEVICES=1`
+
+`conda deactivate`
+
+`conda deactivate`
+
+`cd stelar_3dunet/`
+
+`source spt19/bin/activate`
+
+`python3 test_set_saving_10000_spt_points.py --crop_1 21 --crop_2 23 --crop_3 27`
+
+`python3 test_set_saving_10000_spt_points.py --crop_1 28 --crop_2 30 --crop_3 32`
+
+`python3 test_set_saving_10000_spt_points.py --crop_1 33 --crop_2 34 --crop_3 35`
+
+`python3 test_set_saving_10000_spt_points.py --crop_1 36 --crop_2 37 --crop_3 40`
+
+`python3 test_set_saving_10000_spt_points.py --crop_1 37 --crop_2 40 --crop_3 41`
+
+
 ### To save the ground truths and predictions for a given experiment and prepare for evaluation
 
 `cd stelar_3dunet/`
@@ -144,3 +167,8 @@ model 11:
 <img src="./showcase/ensamble_results/no_oversampling/ground_truth_pred52.png" alt="Ground Truth vs Prediction" width="600">
 
 
+### Experiment 2: Bias mitigation measures
+
+We incorporate measures to mitigate bias through scarcity-aware sampling and class weights in the loss function. 
+
+In-order to replicate the results, run the jupyter notebook `direct_testing_with saved_test_set.ipynb` and follow the instructions in the notebook. 
