@@ -142,6 +142,9 @@ model 11:
 
 <img src="./showcase/iou/exp1_iou.png" alt="exp1_iou" width="600">
 
+
+TOo plot ther IOU for experiment 1, refer to the jupyter notebook `ensamble_quantitative analysis_of_results_exp1.ipynb`
+
 #### Qualitative results : 
 
 1. Sample 1
@@ -173,7 +176,7 @@ We incorporate measures to mitigate bias through scarcity-aware sampling and cla
 
 In-order to replicate the results, run the jupyter notebook `direct_testing_with saved_test_set.ipynb` and follow the instructions in the notebook. 
 
-I order to plot the inputs and outputs of this experiment with and without missing value(cloud) interpolation at the inference stage and also to save the ground truths and predictions to further calculate IOU and F1 score, run :
+In order to plot the inputs and outputs of this experiment with and without missing values(cloud) interpolation at the inference stage and also to save the ground truths and predictions to further calculate IOU and F1 score, run :
 
 
 `export CUDA_VISIBLE_DEVICES=1`
@@ -182,3 +185,5 @@ I order to plot the inputs and outputs of this experiment with and without missi
 `cd stelar_3dunet/`
 `source spt19/bin/activate`
 `python3 direct_testing_with_saved_test_set.py`
+
+
