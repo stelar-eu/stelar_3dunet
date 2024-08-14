@@ -231,18 +231,18 @@ We performed imputation of missing values through time series pixel-wise interpo
 
 1. Sample 1
 
-<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_0_sample_8_.png" alt="LAI_52" width="500"> <img src="./showcase/ensamble_results/class_weights_more_data/interpol/LAI_subset_0_sample_8_.png" alt="LAI_52" width="500">
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_0_sample_8_.png" alt="LAI_52" width="400"> <img src="./showcase/ensamble_results/class_weights_more_data/interpol/LAI_subset_0_sample_8_.png" alt="LAI_52" width="400">
 
 2. Sample 2
 
-<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_1_sample_78_.png" alt="LAI_52" width="500"> <img src="./showcase/ensamble_results/class_weights_more_data/interpol/LAI_subset_1_sample_78_.png" alt="LAI_52" width="500">
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_1_sample_78_.png" alt="LAI_52" width="400"> <img src="./showcase/ensamble_results/class_weights_more_data/interpol/LAI_subset_1_sample_78_.png" alt="LAI_52" width="400">
 
 
 3. Sample 3
 
-<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_1_sample_123_.png" alt="LAI_52" width="500"> <img src="./showcase/ensamble_results/class_weights_more_data/interpol/LAI_subset_1_sample_123_.png" alt="LAI_52" width="500">
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_1_sample_123_.png" alt="LAI_52" width="400"> <img src="./showcase/ensamble_results/class_weights_more_data/interpol/LAI_subset_1_sample_123_.png" alt="LAI_52" width="400">
 
 
 4. Sample 4
 
-<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_10_sample_129_.png" alt="LAI_52" width="500"> <img src="./showcase/ensamble_results/class_weights_more_data/interpol/LAI_subset_10_sample_129_.png" alt="LAI_52" width="500">
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_10_sample_129_.png" alt="LAI_52" width="400"> <img src="./showcase/ensamble_results/class_weights_more_data/interpol/LAI_subset_10_sample_129_.png" alt="LAI_52" width="400">
