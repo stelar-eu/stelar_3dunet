@@ -172,7 +172,7 @@ TOo plot ther IOU for experiment 1, refer to the jupyter notebook `ensamble_quan
 
 ### Experiment 2: Bias mitigation measures
 
-We incorporate measures to mitigate bias through scarcity-aware sampling and class weights in the loss function. 
+We incorporate measures to mitigate bias through scarcity-aware sampling and class weights in the loss function. We used higher amount of training data in this experiment. The training set consisted of 9000 spatio-temporal training samples
 
 In-order to replicate the results, run the jupyter notebook `direct_testing_with saved_test_set.ipynb` and follow the instructions in the notebook. 
 
@@ -187,3 +187,13 @@ In order to plot the inputs and outputs of this experiment with and without miss
 `python3 direct_testing_with_saved_test_set.py`
 
 
+### Intersection over union for crop types
+
+<img src="./showcase/iou/exp2_iou_no_cloud_interpol.png" alt="exp1_iou" width="600">
+
+
+### F1 score
+
+<img src="./showcase/f1_score/exp2_f1_no_cloud_interpol.png" alt="exp1_iou" width="600">
+
+For quantitive plots of this experimet check the jupyter notebook `ensamble_quantitative analysis_of_results_exp2.ipynb`. 

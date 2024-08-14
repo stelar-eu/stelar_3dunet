@@ -26,7 +26,7 @@ filepaths.sort()
 export CUDA_VISIBLE_DEVICES=0
 cd stelar_3dunet/
 conda activate inn
-python traiing_data_per_crop.py --chosen_crop_types 37
+python traiing_data_per_crop.py --chosen_crop_types 1
 
 
 start from  including 
@@ -114,8 +114,8 @@ for i in range(per_crop_spatio_temporal_data_size):
     print("spatial_label_batches.shape", spatial_label_batches.shape)
 
     array_lai = temporal_batches.cpu().numpy()
-    tifffile.imsave('/home/luser/stelar_3dunet/storage/per_crop_data_labels/'+vista_crop_dict[chosen_crop_types]+'/train'+vista_crop_dict[chosen_crop_types]+'n4.tif', array_lai)
+    tifffile.imsave('/home/luser/stelar_3dunet/storage/per_crop_data_labels/'+vista_crop_dict[chosen_crop_types]+'/train'+vista_crop_dict[chosen_crop_types]+'n6.tif', array_lai)
 
 
     array_lab = spatial_label_batches.cpu().numpy()
-    tifffile.imsave('/home/luser/stelar_3dunet/storage/per_crop_data_labels/'+vista_crop_dict[chosen_crop_types]+'/lab'+vista_crop_dict[chosen_crop_types]+'n4.tif', array_lab)
+    tifffile.imsave('/home/luser/stelar_3dunet/storage/per_crop_data_labels/'+vista_crop_dict[chosen_crop_types]+'/lab'+vista_crop_dict[chosen_crop_types]+'n6.tif', array_lab)
