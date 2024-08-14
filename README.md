@@ -246,3 +246,6 @@ We performed imputation of missing values through time series pixel-wise interpo
 4. Sample 4
 
 <img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_10_sample_129_.png" alt="LAI_52" width="400"> <img src="./showcase/ensamble_results/class_weights_more_data/interpol/LAI_subset_10_sample_129_.png" alt="LAI_52" width="400">
+
+
+We expected that this imputation right before inference would improve the results. But we didn't see significant improvement in results.
