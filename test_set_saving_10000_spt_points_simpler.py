@@ -55,17 +55,21 @@ pip uninstall scikit-image
 crop_types_all_list = [ 1,  2,  3,  4,  5,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 23, 27, 28, 30, 32, 33, 34, 35, 36, 37, 40, 41]
 
 
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=1
 conda deactivate
 conda deactivate
 cd stelar_3dunet/
 source spt19/bin/activate
-python3 test_set_saving_10000_spt_points_simpler.py --crop_1 1 --crop_2 2 --crop_3 3
 python3 test_set_saving_10000_spt_points_simpler.py --crop_1 4 --crop_2 5 --crop_3 7
 python3 test_set_saving_10000_spt_points_simpler.py --crop_1 8 --crop_2 9 --crop_3 10
 python3 test_set_saving_10000_spt_points_simpler.py --crop_1 11 --crop_2 12 --crop_3 13
 python3 test_set_saving_10000_spt_points_simpler.py --crop_1 14 --crop_2 15 --crop_3 16
 python3 test_set_saving_10000_spt_points_simpler.py --crop_1 18 --crop_2 19 --crop_3 20
+python3 test_set_saving_10000_spt_points_simpler.py --crop_1 21 --crop_2 23 --crop_3 27
+python3 test_set_saving_10000_spt_points_simpler.py --crop_1 28 --crop_2 30 --crop_3 32
+python3 test_set_saving_10000_spt_points_simpler.py --crop_1 33 --crop_2 34 --crop_3 35
+python3 test_set_saving_10000_spt_points_simpler.py --crop_1 36 --crop_2 37 --crop_3 40
+python3 test_set_saving_10000_spt_points_simpler.py --crop_1 37 --crop_2 40 --crop_3 41
 
 
 chosen_crop_types_list_list = [[1, 2, 3], [4, 5, 7], [8,  9, 10], [11, 12, 13], [14, 15, 16], [18, 19, 20], [21, 23, 27], [28, 30, 32], [33, 34, 35], [36, 37, 40], [37, 40, 41]]

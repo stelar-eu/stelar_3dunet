@@ -172,3 +172,13 @@ model 11:
 We incorporate measures to mitigate bias through scarcity-aware sampling and class weights in the loss function. 
 
 In-order to replicate the results, run the jupyter notebook `direct_testing_with saved_test_set.ipynb` and follow the instructions in the notebook. 
+
+I order to plot the inputs and outputs of this experiment with and without missing value(cloud) interpolation at the inference stage and also to save the ground truths and predictions to further calculate IOU and F1 score, run :
+
+
+`export CUDA_VISIBLE_DEVICES=1`
+`conda deactivate`
+`conda deactivate`
+`cd stelar_3dunet/`
+`source spt19/bin/activate`
+`python3 direct_testing_with_saved_test_set.py`
