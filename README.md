@@ -197,3 +197,57 @@ In order to plot the inputs and outputs of this experiment with and without miss
 <img src="./showcase/f1_score/exp2_f1_no_cloud_interpol.png" alt="exp1_iou" width="600">
 
 For quantitive plots of this experimet check the jupyter notebook `ensamble_quantitative analysis_of_results_exp2.ipynb`. 
+
+
+#### Qualitative results : 
+
+1. Sample 1
+
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_10_sample_129_.png" alt="LAI_1" width="400">
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/ground_truth_pred_subset_10_sample_129_.png" alt="Ground Truth vs Prediction" width="600">
+
+
+2. Sample 2
+
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_0_sample_8_.png" alt="LAI_34" width="400">
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/ground_truth_pred_subset_0_sample_8_.png" alt="Ground Truth vs Prediction" width="600">
+
+
+3. Sample 3
+
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_1_sample_78_.png" alt="LAI_46" width="400">
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/ground_truth_pred_subset_1_sample_78_.png" alt="Ground Truth vs Prediction" width="600">
+
+4. Sample 4
+
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_1_sample_123_.png" alt="LAI_52" width="400">
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/ground_truth_pred_subset_1_sample_123_.png" alt="Ground Truth vs Prediction" width="600">
+
+
+
+#### Interpolation of missing LAI values during inference. 
+
+We performed imputation of missing values through time series pixel-wise interpolation. Below are the examples.
+
+1. Sample 1
+
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_0_sample_8_.png" alt="LAI_52" width="400">
+<img src="./showcase/ensamble_results/class_weights_more_data/interpol/LAI_subset_0_sample_8_.png" alt="Ground Truth vs Prediction" width="600">
+
+
+2. Sample 2
+
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_1_sample_78_.png" alt="LAI_52" width="400">
+<img src="./showcase/ensamble_results/class_weights_more_data/interpol/LAI_subset_1_sample_78_.png" alt="Ground Truth vs Prediction" width="600">
+
+
+3. Sample 3
+
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_1_sample_123_.png" alt="LAI_52" width="400">
+<img src="./showcase/ensamble_results/class_weights_more_data/interpol/LAI_subset_1_sample_123_.png" alt="Ground Truth vs Prediction" width="600">
+
+
+4. Sample 4
+
+<img src="./showcase/ensamble_results/class_weights_more_data/no_interpol/LAI_subset_10_sample_129_.png" alt="LAI_52" width="400">
+<img src="./showcase/ensamble_results/class_weights_more_data/interpol/LAI_subset_10_sample_129_.png" alt="Ground Truth vs Prediction" width="600">
