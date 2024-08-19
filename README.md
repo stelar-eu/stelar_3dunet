@@ -9,6 +9,13 @@ Below is the dictionaly of crop types to predict with indices :
 
 { 0:'NA' , 1: 'ALFALFA', 2: 'BEET', 3: 'CLOVER', 4: 'FLAX', 5: 'FLOWERING_LEGUMES', 6: 'FLOWERS', 7: 'FOREST', 8: 'GRAIN_MAIZE', 9: 'GRASSLAND', 10: 'HOPS', 11: 'LEGUMES', 12: 'VISTA_NA', 13: 'PERMANENT_PLANTATIONS', 14: 'PLASTIC', 15: 'POTATO', 16: 'PUMPKIN', 17: 'RICE', 18: 'SILAGE_MAIZE', 19: 'SOY', 20: 'SPRING_BARLEY', 21: 'SPRING_OAT', 22: 'SPRING_OTHER_CEREALS', 23: 'SPRING_RAPESEED', 24: 'SPRING_RYE', 25: 'SPRING_SORGHUM', 26: 'SPRING_SPELT', 27: 'SPRING_TRITICALE', 28: 'SPRING_WHEAT', 29: 'SUGARBEET', 30: 'SUNFLOWER', 31: 'SWEET_POTATOES', 32: 'TEMPORARY_GRASSLAND', 33: 'WINTER_BARLEY', 34: 'WINTER_OAT', 35: 'WINTER_OTHER_CEREALS', 36: 'WINTER_RAPESEED', 37: 'WINTER_RYE', 38: 'WINTER_SORGHUM', 39: 'WINTER_SPELT', 40: 'WINTER_TRITICALE', 41: 'WINTER_WHEAT'}
 
+### Data preparation:
+
+1. move LAI.zip to `./dataset/france2/lai_ras/` and unzip it. 
+
+2. Run `python data_saving_france_RAS_npy.py` to save time series `.npy` files in the directory `./dataset/france2/processed_lai_npy/`
+
+
 ### Scarcity-Aware Data Slicing and Sampling:
 
 We perform spatio-temporal data slicing and sampling as the dataset is as large as (10002x10002x256). In order to ensure representation of all necessary crop types in the training subsets to train the ensamble of models, we perform data slicing and sampling conditioned with positional information of the crop types . 
