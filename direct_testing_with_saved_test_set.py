@@ -110,6 +110,7 @@ for test_img_number in range(1000):
         ensambled_result_image_gen = np.zeros((64, 64, 64))
 
         test_img = X_test[test_img_number-1]
+        tifffile.imsave('/home/luser/stelar_3dunet/ensamble_results/iou_f1_class_weights/inputs/input_subset_'+str(chosen_subset_for_test_set)+'_sample_'+str(test_img_number)+'_.tif', test_img)
 
         if cloud_interpolation:
             for i in range(64):
