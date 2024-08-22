@@ -13,7 +13,7 @@ Below is the dictionaly of crop types to predict with indices :
 
 1. make directory `mkdir dataset/france2/lai_ras`
 2. move LAI.zip to `./dataset/france2/lai_ras/` and unzip it. 
-3. make directory `stelar_3dunet/dataset/france2/processed_lai_npy`
+3. make directory `mkdir stelar_3dunet/dataset/france2/processed_lai_npy`
 4. Run `python data_saving_france_RAS_npy.py` to save time series `.npy` files in the directory `./dataset/france2/processed_lai_npy/`
 
 
