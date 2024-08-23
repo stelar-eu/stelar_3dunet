@@ -463,8 +463,6 @@ del X_test
 
 
 
-
-#Define the model. Here we use Unet but we can also use other model architectures from the library.
 model = sm.Unet(BACKBONE, classes=n_classes, 
                 input_shape=(patch_size, patch_size, patch_size, channels), 
                 encoder_weights=encoder_weights,
