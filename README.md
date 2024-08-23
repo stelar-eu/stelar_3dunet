@@ -51,7 +51,7 @@ We train each of the models in the ensamble separately
 
 `source spt19/bin/activate`
 
-`python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected_more_data.py --crop_1 28 --crop_2 30 --crop_3 32`
+`python3 3D_unet_data_generator_check_pt.py --crop_1 28 --crop_2 30 --crop_3 32`
 
 ### How to save the test sets of all the subsets of data with which the models are trained 
 
