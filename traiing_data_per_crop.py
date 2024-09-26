@@ -23,10 +23,10 @@ filepaths.sort()
 
 '''
 
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=1
 cd stelar_3dunet/
-conda activate inn
-python traiing_data_per_crop.py --chosen_crop_types 1
+conda activate /home/luser/anaconda3/envs/inn
+python traiing_data_per_crop.py --chosen_crop_types 41
 
 
 start from  including 

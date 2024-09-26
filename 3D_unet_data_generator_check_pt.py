@@ -9,9 +9,14 @@ print(keras.__version__)
 from tensorflow.keras.utils import Sequence
 
 device_name = tf.test.gpu_device_name()
-if device_name != '/device:GPU:0':
+
+
+# very important  : export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/
+
+
+'''if device_name != '/device:GPU:0':
   raise SystemError('GPU device not found')
-print('Found GPU at: {}'.format(device_name))
+print('Found GPU at: {}'.format(device_name))'''
 
 
 '''
@@ -24,16 +29,29 @@ virtualenv spt20
 source spt19/bin/activate
 
 
-pip install tensorflow
-pip install classification-models-3D
-pip install efficientnet-3D
-pip install segmentation-models-3D
-pip install scikit-learn
-pip install matplotlib
-pip install patchify
-pip install scikit-image
+python3 -m venv atrial
 
-python 3D_unet_1.py 
+pip3 install tensorflow
+pip3 install classification-models-3D
+pip3 install efficientnet-3D
+pip3 install segmentation-models-3D
+pip3 install scikit-learn
+pip3 install matplotlib
+pip3 install patchify
+pip3 install scikit-image
+
+python ./extras/3D_unet.py
+
+
+#######################################
+pip3 install classification-models-3D==1.0.10
+pip3 install efficientnet-3D==1.0.2
+pip3 install segmentation-models-3D==1.0.7
+pip3 install scikit-learn==1.5.0
+pip3 install matplotlib==3.9.0
+pip3 install patchify==0.2.3
+pip3 install scikit-image==0.24.0
+#######################################
 
 
 
@@ -51,45 +69,60 @@ pip uninstall scikit-image
 
 '''
 
-export CUDA_VISIBLE_DEVICES=1
+export CUDA_VISIBLE_DEVICES=0
 conda deactivate
 conda deactivate
 cd stelar_3dunet/
 source spt19/bin/activate
-python3 3D_unet_continual_model_tuning_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
 
 
-python3 3D_unet_continual_model_tuning_data_generator_check_pt.py --crop_1 37 --crop_2 40 --crop_3 41
-
- , , 
-
-export CUDA_VISIBLE_DEVICES=1
-conda deactivate
-conda deactivate
-cd stelar_3dunet/
-source spt19/bin/activate
-python3 3D_unet_continual_model_tuning_data_generator_check_pt.py --crop_1 4 --crop_2 5 --crop_3 7
-python3 3D_unet_continual_model_tuning_data_generator_check_pt.py --crop_1 33 --crop_2 34 --crop_3 35
-python3 3D_unet_continual_model_tuning_data_generator_check_pt.py --crop_1 36 --crop_2 37 --crop_3 40
-python3 3D_unet_continual_model_tuning_data_generator_check_pt.py --crop_1 37 --crop_2 40 --crop_3 41
+python3 3D_unet_data_generator_check_pt.py --crop_1 37 --crop_2 40 --crop_3 41
 
 
-****** memory error issues *************
-
-export CUDA_VISIBLE_DEVICES=1
-conda deactivate
-conda deactivate
-cd stelar_3dunet/
-source spt19/bin/activate
-export TF_GPU_ALLOCATOR=cuda_malloc_async
-python3 3D_unet_continual_model_tuning.py --crop_1 1 --crop_2 2 --crop_3 3
 
 
 '''
 
 
+# The new commands are here 
+
+'''
+export CUDA_VISIBLE_DEVICES=0
+conda deactivate
+conda deactivate
+conda activate stcon3
+cd stelar_3dunet/
+python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+python3 3D_unet_data_generator_check_pt.py --crop_1 4 --crop_2 5 --crop_3 7
+
+
+'''
+
+# advanced commands
+'''
+
+export CUDA_VISIBLE_DEVICES=0
+conda deactivate
+conda deactivate
+conda activate /home/luser/miniforge3/envs/stcon3
+cd stelar_3dunet/
+export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/
+python3 3D_unet_data_generator_check_pt.py --crop_1 8 --crop_2 9 --crop_3 41
+
+
+'''
+
+# well trained groups : [1, 2, 3], 
+
+
+# To get a sense for how much memory you have available to your processes you can run:
+# cat /proc/meminfo | grep MemTotal
+
+
 
 import segmentation_models_3D as sm
+#import segmentation_models as sm
 
 
 from skimage import io
@@ -102,9 +135,9 @@ from sklearn.model_selection import train_test_split
 
 
 
-'''physical_devices = tf.config.list_physical_devices('GPU')
+physical_devices = tf.config.list_physical_devices('GPU')
 for device in physical_devices:
-    tf.config.experimental.set_memory_growth(device, True)'''
+    tf.config.experimental.set_memory_growth(device, True)
 
 class DataGenerator(Sequence):
     def __init__(self, X, y, batch_size=8, shuffle=True):
@@ -170,7 +203,7 @@ chosen_crop_types_list = [cr_1, cr_2, cr_3]
 
 chosen_crop_types_list1 = [cr_1, cr_2, cr_3,  4,  5]
 
-crop_types_all_list = [ 1,  2,  3,  4,  5,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 23, 27, 28, 30, 32, 33, 34, 35, 36, 37, 40, 41]
+crop_types_all_list = [ 0, 1,  2,  3,  4,  5,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 23, 27, 28, 30, 32, 33, 34, 35, 36, 37, 40, 41]
 
 
 print("vista_crop_dict[chosen_crop_types_list[1]], vista_crop_dict[chosen_crop_types_list[1]], vista_crop_dict[chosen_crop_types_list[1]]", vista_crop_dict[chosen_crop_types_list[0]], vista_crop_dict[chosen_crop_types_list[1]], vista_crop_dict[chosen_crop_types_list[2]])
@@ -257,6 +290,8 @@ for crop_no in chosen_crop_types_list:
     input_img_f = np.concatenate((input_img, input_img0, input_img1, input_img2, input_img3, input_img4, input_img5, input_img6, input_img7, input_img8, input_img9, input_img10), axis=0)
     input_mask_f = np.concatenate((input_mask, input_mask0, input_mask1, input_mask2, input_mask3, input_mask4, input_mask5, input_mask6, input_mask7, input_mask8, input_mask9, input_mask10), axis=0)
 
+    '''input_img_f = np.concatenate((input_img, input_img0, input_img1, input_img2, input_img3, input_img4, input_img5, input_img6, input_img7, input_img8, input_img9), axis=0)
+    input_mask_f = np.concatenate((input_mask, input_mask0, input_mask1, input_mask2, input_mask3, input_mask4, input_mask5, input_mask6, input_mask7, input_mask8, input_mask9), axis=0)'''
 
     bis = int(len(input_img_f)*sampling_group_fractions[counted]) - 2
 
@@ -315,10 +350,19 @@ print("final input_mask.shape", input_mask.shape)
 #all_input_mask = 0
 
 
-input_mask[input_mask<chosen_crop_types_list[0]]=0
+'''input_mask[input_mask<chosen_crop_types_list[0]]=0
 input_mask[input_mask>chosen_crop_types_list[-1]]=0
+input_mask[input_mask==7]=0
 for i in range(3):
-    input_mask[input_mask==chosen_crop_types_list[i]]=i+1
+    input_mask[input_mask==chosen_crop_types_list[i]]=i+1'''
+
+mi = 0
+for k in crop_types_all_list:
+    if k in chosen_crop_types_list:
+        input_mask[input_mask==k]=mi+1
+        mi+=1
+    else:
+        input_mask[input_mask==k]=0
 
 ###########################################################################################################
 
@@ -410,6 +454,16 @@ del input_img4
 del input_mask4
 del input_img5
 del input_mask5
+del input_img6
+del input_mask6
+del input_img7
+del input_mask7
+del input_img8
+del input_mask8
+del input_img9
+del input_mask9
+del input_img10
+del input_mask10
 
 
 '''train_img = 0
@@ -474,6 +528,10 @@ print(model.summary())
 train_generator = DataGenerator(X_train_prep, y_train, batch_size=8)
 validation_generator = DataGenerator(X_test_prep, y_test, batch_size=8)
 
+del X_train_prep
+del y_train
+del X_test_prep
+del y_test
 
 '''history = model.fit(train_generator,
                     epochs=num_epochs,

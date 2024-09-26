@@ -167,10 +167,10 @@ all_input_mask_f = np.concatenate((all_input_mask_f), axis=0)
 print("all_input_img_f.shape", all_input_img_f.shape)
 print("all_input_mask_f.shape", all_input_mask_f.shape)
 
-input_img = np.concatenate((all_input_img_f), axis=0).reshape(-1, 64, 64, 64)
+input_img = np.concatenate((all_input_img_f), axis=0).reshape(-1, 64, 64, 64)[:500]
 #input_img = np.array(all_input_img).reshape(-1, 64, 64, 64)
 #input_mask = np.array(all_input_mask).reshape(-1, 64, 64)
-input_mask = np.concatenate((all_input_mask_f), axis=0).reshape(-1, 64, 64)
+input_mask = np.concatenate((all_input_mask_f), axis=0).reshape(-1, 64, 64)[:500]
 
 #unique_elements, element_counts = np.unique(input_mask, return_counts=True)
 
