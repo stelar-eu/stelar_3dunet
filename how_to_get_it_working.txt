@@ -1,0 +1,25 @@
+conda create --name stcon2 (Which python version I dont know. I will see later)
+
+
+
+Follow this page for installing tensorflow : https://github.com/tensorflow/docs/blob/513d92d69cacbe9f2bda19e96045e6b836c93545/site/en/install/pip.md
+(The last command threw error. But it was ok)
+
+
+And then #######################################
+pip3 install classification-models-3D==1.0.10
+pip3 install efficientnet-3D==1.0.2
+pip3 install segmentation-models-3D==1.0.7
+pip3 install scikit-learn==1.5.0
+pip3 install matplotlib==3.9.0
+pip3 install patchify==0.2.3
+pip3 install scikit-image==0.24.0
+#######################################
+
+
+This should work !!!!!!
+
+
+moved libdevice file to nvvm
+
+and then set the path for cuda
