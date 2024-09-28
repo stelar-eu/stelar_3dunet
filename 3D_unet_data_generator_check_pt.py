@@ -108,7 +108,7 @@ conda deactivate
 conda activate /home/luser/miniforge3/envs/stcon3
 cd stelar_3dunet/
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/
-python3 3D_unet_data_generator_check_pt.py --crop_1 8 --crop_2 9 --crop_3 41
+python3 3D_unet_data_generator_check_pt.py --crop_1 4 --crop_2 5 --crop_3 7
 
 
 '''
@@ -500,6 +500,9 @@ LR = 0.0001
 optim = keras.optimizers.Adam(LR)
 
 dice_loss = sm.losses.DiceLoss(class_weights=np.array([weights[0], weights[1], weights[2], weights[3]])) 
+
+#dice_loss = sm.losses.DiceLoss(class_weights=np.array([0.25, 0.25, 0.25, 0.25])) 
+
 focal_loss = sm.losses.CategoricalFocalLoss()
 total_loss = dice_loss + (1 * focal_loss)
 

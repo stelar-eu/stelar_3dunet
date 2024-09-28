@@ -1,0 +1,383 @@
+1662  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1663  tmux
+ 1664  conda deactivate
+ 1665  curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+ 1666  bash Miniforge3-$(uname)-$(uname -m).sh
+ 1667  conda deactivate
+ 1668  mamba deactivate
+ 1669  conda config --set auto_activate_base false
+ 1670  env
+ 1671  nvidia-smi
+ 1672  conda activate
+ 1673  cd /home/luser/
+ 1674  conda activate
+ 1675  env
+ 1676  nvidia-smi
+ 1677  exit
+ 1678  /home/luser/miniforge3/envs/stcon3/bin/python /home/luser/stelar_3dunet/3D_unet_data_generator_check_pt.py
+ 1679  python
+ 1680  nvidia-smi
+ 1681  kill 63830
+ 1682  kill 63986
+ 1683  kill 64210
+ 1684  nvidia-smi
+ 1685  mamba env  create --name stcon3 python=3.11
+ 1686  mamba env  create --name stcon3 python==3.11
+ 1687  mamba create -n stcon3 python=3.11
+ 1688  mamba activate stcon3
+ 1689  mamba install -c conda-forge cudatoolkit=11.8
+ 1690  mamba clean -a
+ 1691  mamba deactivate
+ 1692  mamba clean -a
+ 1693  conda clean -a
+ 1694  mamba activate stcon3
+ 1695  mamba install -c conda-forge cudatoolkit=11.8
+ 1696  mamba install -c conda-forge cudnn=8.6
+ 1697  pip install nvidia-cudnn-cu11==8.6.0.163
+ 1698  mamba install -c conda-forge tensorflow=2.13
+ 1699  cd stelar_3d/
+ 1700  which python
+ 1701  /home/luser/miniforge3/envs/stcon3/bin/python
+ 1702  pip install classification-models-3D==1.0.10
+ 1703  pip install efficientnet-3D==1.0.2
+ 1704  pip install segmentation-models-3D==1.0.7
+ 1705  mamba install -c conda-forge scikit-learn==1.5.0
+ 1706  mamba install -c conda-forge matplotlib==3.9.0
+ 1707  mamba install -c conda-forge matplotlib
+ 1708  pip install patchify==0.2.3
+ 1709  mamba install -c conda-forge scikit-image==0.24.0
+ 1710  tmux ls
+ 1711  tmux attach -t 3
+ 1712  /bin/python3 /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/printEnvVariablesToFile.py /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash/envVars.txt
+ 1713  nvidia-smi
+ 1714  export CUDA_VISIBLE_DEVICES=0
+ 1715  cd stelar_3dunet/
+ 1716  python3 3D_unet_data_generator_check_pt.py --crop_1 4 --crop_2 5 --crop_3 7
+ 1717  export CUDA_VISIBLE_DEVICES=0
+ 1718  conda deactivate
+ 1719  conda activate stcon2
+ 1720  cd stelar_3dunet/
+ 1721  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1722  export CUDA_VISIBLE_DEVICES=1
+ 1723  cd stelar_3dunet/
+ 1724  conda activate inn
+ 1725  python traiing_data_per_crop.py --chosen_crop_types 4
+ 1726  export CUDA_VISIBLE_DEVICES=1
+ 1727  cd stelar_3dunet/
+ 1728  conda activate inn
+ 1729  python traiing_data_per_crop.py --chosen_crop_types 5
+ 1730  export CUDA_VISIBLE_DEVICES=1
+ 1731  cd stelar_3dunet/
+ 1732  conda activate inn
+ 1733  python traiing_data_per_crop.py --chosen_crop_types 7
+ 1734  nvidia-smi
+ 1735  tmux ls
+ 1736  tmux attach -t 7
+ 1737  nvidia-smi
+ 1738  nvidia-smi
+ 1739  cd /home/luser/robustness_of_subgroups/train_aautoencoders
+ 1740  conda activate inn
+ 1741  python attck_L_inf_bounded_tcvae.py --feature_no 12 --segment 41 --which_gpu 0 --beta_value 10.0
+ 1742  conda deactivate
+ 1743  conda activate inn
+ 1744  conda info --envs
+ 1745  conda activate /home/luser/anaconda3/envs/inn
+ 1746  conda deactivate
+ 1747  mamba activate inn
+ 1748  conda activate /home/luser/anaconda3/envs/inn
+ 1749  python attck_L_inf_bounded_tcvae.py --feature_no 12 --segment 41 --which_gpu 0 --beta_value 10.0
+ 1750  conda env list
+ 1751  conda list --envs
+ 1752  conda --envs
+ 1753  conda env list
+ 1754  conda deactivate
+ 1755  conda activate /home/luser/anaconda3/envs/stcon2
+ 1756  cd stelar_3dunet/
+ 1757  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1758  nvcc --version
+ 1759  find /home/luser/miniforge3/envs/stcon3 -type d -name "*libdevice*"
+ 1760  find /home/luser/miniforge3/envs/stcon3 -type f -name "*libdevice*"
+ 1761  mv /home/luser/miniforge3/envs/stcon3/lib/libdevice.10.bc /home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/
+ 1762  cd stelar_3dunet/
+ 1763  export CUDA_VISIBLE_DEVICES=1
+ 1764  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1765  clear
+ 1766  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1767  sudo find / -name "libdevice.10.bc"
+ 1768  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/
+ 1769  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1770  cd  /home/luser/miniforge3/envs/stcon3/lib/
+ 1771  ls
+ 1772  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda
+ 1773  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1774  cd
+ 1775  cd stelar_3dunet
+ 1776  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1777  nvcc --version
+ 1778  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1779  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda
+ 1780  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1781  find /home/luser/miniforge3/envs/stcon3 -type d -name "*cuda*"
+ 1782  find /home/luser/miniforge3/envs/stcon3 -type d -name "*nvvm*"
+ 1783  mkdir /home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm
+ 1784  mv /home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/libdevice.10.bc /home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/
+ 1785  mkdir /home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/libdevice
+ 1786  mv /home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/libdevice.10.bc /home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/libdevice/
+ 1787  nvidia-smi
+ 1788  conda env list
+ 1789  conda activate /home/luser/miniforge3/envs/stcon3
+ 1790  cd stelar_3dunet
+ 1791  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1792  clear
+ 1793  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1794  /bin/python3 /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/printEnvVariablesToFile.py /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash/envVars.txt
+ 1795  tmux ls
+ 1796  conda env list
+ 1797  conda activate /home/luser/miniforge3/envs/stcon3
+ 1798  cd stelar_3dunet/
+ 1799  python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1800  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1801  cd /home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/libdevice
+ 1802  ls
+ 1803  cd
+ 1804  cd ./cuda_sdk_lib
+ 1805  find ./cuda_sdk_lib
+ 1806  find /home/luser/miniforge3/envs/stcon3 -type d -name "*cuda_sdk_lib*"
+ 1807  find /home/luser/miniforge3/envs/stcon3 -type f -name "*cuda_sdk_lib*"
+ 1808  conda deactivate
+ 1809  conda env list
+ 1810  conda activate /home/luser/anaconda3/envs/stcon1
+ 1811  python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1812  cd stelar_3dunet/
+ 1813  python3 3D_unet_bias_mit_1_representation_bias_mitigation_through_class_weights_corrected.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1814  conda deactivate
+ 1815  source spt19/bin/activate
+ 1816  pip install nvidia-cuda-toolkit==11.8.0
+ 1817  pip3 install nvidia-cuda-toolkit==11.8.0
+ 1818  pip3 install nvidia-cuda-toolkit
+ 1819  cd  /usr/local/cuda-11.8
+ 1820  ls /usr/local/cuda
+ 1821  cd /usr/local/cuda
+ 1822  nvcc --version
+ 1823  ls /usr/local | grep cuda
+ 1824  nvidia-smi
+ 1825  conda activate stcon3
+ 1826  which nvcc
+ 1827  cd $(dirname $(which nvcc))
+ 1828  conda list | grep cudatoolkit
+ 1829  conda info --envs
+ 1830  find /home/luser/miniforge3/envs/stcon3 -name nvcc
+ 1831  export PATH=$PATH:/home/luser/miniforge3/envs/stcon3/bin
+ 1832  echo 'export PATH=$PATH:/home/luser/miniforge3/envs/stcon3/bin' >> ~/.bashrc
+ 1833  source ~/.bashrc
+ 1834  which nvcc
+ 1835  nvcc --version
+ 1836  conda activate /home/luser/miniforge3/envs/stcon3
+ 1837  nvcc --version
+ 1838  python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+ 1839  cd stelar_3dunet/
+ 1840  python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+ 1841  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1842  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/local/cuda-11.8
+ 1843  ls /usr/local/cuda-11.8/nvvm/libdevice
+ 1844  sudo apt remove --purge nvidia-cuda-toolkit
+ 1845  sudo apt install nvidia-cuda-toolkit
+ 1846  ls /usr/local/cuda-11.8/nvvm/libdevice
+ 1847  cd /usr/local/cuda-11.8/nvvm/libdevice
+ 1848  export TF_XLA_FLAGS=--tf_xla_enable_xla_devices=false
+ 1849  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1850  cd ./usr/local/cuda-11.8
+ 1851  cd /home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/libdevice
+ 1852  ls
+ 1853  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/
+ 1854  cd
+ 1855  cd stelar_3dunet/
+ 1856  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1857  cd /home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/
+ 1858  ls
+ 1859  cd libdevice/
+ 1860  pwd
+ 1861  cd
+ 1862  cd stelar_3dunet/
+ 1863  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/libdevice
+ 1864  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/libdevice/
+ 1865  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1866  nvcc --version
+ 1867  nvidia-smi
+ 1868  conda deactivate
+ 1869  conda activate stcon2
+ 1870  conda env list
+ 1871  conda activate /home/luser/anaconda3/envs/stcon2
+ 1872  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1873  cd stelar_3dunet/
+ 1874  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1875  export CUDA_VISIBLE_DEVICES=1
+ 1876  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1877  conda env list
+ 1878  cd stelar_3dunet/
+ 1879  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1880  echo $CUDA_DIR
+ 1881  ls /usr/local/cuda-11.8
+ 1882  ls /usr/local/cuda
+ 1883  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/
+ 1884  ls /home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/libdevice
+ 1885  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1886  export CUDA_DIR=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda
+ 1887  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1888  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/
+ 1889  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1890  conda env list
+ 1891  conda deactivate
+ 1892  conda activate /home/luser/miniforge3/envs/stcon3
+ 1893  cd stelar_3dunet/
+ 1894  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1895  /bin/python3 /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/printEnvVariablesToFile.py /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash/envVars.txt
+ 1896  conda env list
+ 1897  conda activate inn
+ 1898  conda activate /home/luser/anaconda3/envs/inn
+ 1899  conda deactivate
+ 1900  conda activate /home/luser/miniforge3/envs/stcon3
+ 1901  cd stelar_3dunet/
+ 1902  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/
+ 1903  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1904  nvidia-smi
+ 1905  tmux ls
+ 1906  tmux attach -t 0
+ 1907  /bin/python3 /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/printEnvVariablesToFile.py /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash/envVars.txt
+ 1908  export CUDA_VISIBLE_DEVICES=1
+ 1909  conda deactivate
+ 1910  conda activate /home/luser/miniforge3/envs/stcon3
+ 1911  cd stelar_3dunet/
+ 1912  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/
+ 1913  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1914  cat /proc/meminfo | grep MemTotal
+ 1915  nvidia-smi
+ 1916  export CUDA_VISIBLE_DEVICES=1
+ 1917  conda deactivate
+ 1918  conda activate /home/luser/miniforge3/envs/stcon3
+ 1919  cd stelar_3dunet/
+ 1920  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/
+ 1921  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1922  clear
+ 1923  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1924  nvidia-smi
+ 1925  tmux ls
+ 1926  tmux attach -t 2
+ 1927  export CUDA_VISIBLE_DEVICES=0
+ 1928  cd stelar_3dunet/
+ 1929  conda activate /home/luser/anaconda3/envs/inn
+ 1930  python traiing_data_per_crop.py --chosen_crop_types 4
+ 1931  tmux ls
+ 1932  nvidia-smi
+ 1933  tmux ls
+ 1934  tmux attach -t 9
+ 1935  /bin/python3 /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/printEnvVariablesToFile.py /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash/envVars.txt
+ 1936  export CUDA_VISIBLE_DEVICES=0
+ 1937  cd stelar_3dunet/
+ 1938  conda activate /home/luser/anaconda3/envs/inn
+ 1939  python traiing_data_per_crop.py --chosen_crop_types 7
+ 1940  export CUDA_VISIBLE_DEVICES=0
+ 1941  cd stelar_3dunet/
+ 1942  conda activate /home/luser/anaconda3/envs/inn
+ 1943  python traiing_data_per_crop.py --chosen_crop_types 5
+ 1944  /bin/python3 /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/printEnvVariablesToFile.py /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash/envVars.txt
+ 1945  export CUDA_VISIBLE_DEVICES=0
+ 1946  cd stelar_3dunet/
+ 1947  conda activate /home/luser/anaconda3/envs/inn
+ 1948  python traiing_data_per_crop.py --chosen_crop_types 7
+ 1949  export CUDA_VISIBLE_DEVICES=0
+ 1950  cd stelar_3dunet/
+ 1951  conda activate /home/luser/anaconda3/envs/inn
+ 1952  python traiing_data_per_crop.py --chosen_crop_types 4
+ 1953  /bin/python3 /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/printEnvVariablesToFile.py /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash/envVars.txt
+ 1954  export CUDA_VISIBLE_DEVICES=0
+ 1955  cd stelar_3dunet/
+ 1956  conda activate /home/luser/anaconda3/envs/inn
+ 1957  python traiing_data_per_crop.py --chosen_crop_types 5
+ 1958  /bin/python3 /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/printEnvVariablesToFile.py /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash/envVars.txt
+ 1959  cd stelar_3dunet
+ 1960  tmux ls
+ 1961  nvidia-smi
+ 1962  export CUDA_VISIBLE_DEVICES=1
+ 1963  conda deactivate
+ 1964  conda activate /home/luser/miniforge3/envs/stcon3
+ 1965  cd stelar_3dunet/
+ 1966  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/
+ 1967  python3 3D_unet_data_generator_check_pt.py --crop_1 1 --crop_2 2 --crop_3 3
+ 1968  tmux ls
+ 1969  tmux attach -t 9
+ 1970  tmux ls
+ 1971  nvidia-smi
+ 1972  export CUDA_VISIBLE_DEVICES=1
+ 1973  conda deactivate
+ 1974  conda activate /home/luser/miniforge3/envs/stcon3
+ 1975  cd stelar_3dunet/
+ 1976  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/
+ 1977  python3 3D_unet_data_generator_check_pt.py --crop_1 4 --crop_2 5 --crop_3 7
+ 1978  free -h
+ 1979  top
+ 1980  free -h
+ 1981  export CUDA_VISIBLE_DEVICES=1
+ 1982  conda deactivate
+ 1983  conda activate /home/luser/miniforge3/envs/stcon3
+ 1984  cd stelar_3dunet/
+ 1985  export XLA_FLAGS=--xla_gpu_cuda_data_dir=/home/luser/miniforge3/envs/stcon3/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/
+ 1986  python3 3D_unet_data_generator_check_pt.py --crop_1 4 --crop_2 5 --crop_3 7
+ 1987  tmux ls
+ 1988  free -h
+ 1989  /bin/python3 /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/printEnvVariablesToFile.py /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash/envVars.txt
+ 1990  tmux ls
+ 1991  tmux attach -t 10
+ 1992  /bin/python3 /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/printEnvVariablesToFile.py /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash/envVars.txt
+ 1993  tmux ls
+ 1994  tmux attach -t 10
+ 1995  /bin/python3 /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/printEnvVariablesToFile.py /home/luser/.vscode-server/extensions/ms-python.python-2024.14.1-linux-x64/python_files/deactivate/bash/envVars.txt
+ 1996  history
+
+
+
+
+ # how to get mamba : 
+
+ 1648  conda deactivate
+ 1649  curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+ 1650  bash Miniforge3-$(uname)-$(uname -m).sh
+ 1651  conda deactivate
+ 1652  mamba deactivate
+
+How to setup the environment using mamba
+
+ 1650  mamba env  create --name stcon4 python=3.11
+ 1651  mamba env  create --name stcon4 python==3.11
+ 1652  mamba create -n stcon4 python=3.11
+ 1653  mamba activate stcon4
+ 1654  mamba install -c conda-forge cudatoolkit=11.8
+ 1655  mamba clean -a
+ 1656  mamba deactivate
+ 1657  mamba clean -a
+ 1658  conda clean -a
+ 1659  mamba activate stcon4
+ 1660  mamba install -c conda-forge cudatoolkit=11.8
+ 1661  mamba install -c conda-forge cudnn=8.6
+ 1662  pip install nvidia-cudnn-cu11==8.6.0.163
+ 1663  mamba install -c conda-forge tensorflow=2.13
+ 1664  cd stelar_3d/
+ 1665  which python
+ 1666  /home/luser/miniforge3/envs/stcon4/bin/python
+ 1667  pip install classification-models-3D==1.0.10
+ 1668  pip install efficientnet-3D==1.0.2
+ 1669  pip install segmentation-models-3D==1.0.7
+ 1670  mamba install -c conda-forge scikit-learn==1.5.0
+ 1671  mamba install -c conda-forge matplotlib==3.9.0
+ 1672  mamba install -c conda-forge matplotlib
+ 1673  pip install patchify==0.2.3
+ 1674  mamba install -c conda-forge scikit-image==0.24.0
+
+
+
+1767  mkdir /home/luser/miniforge3/envs/stcon4/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm
+1768  mv /home/luser/miniforge3/envs/stcon4/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/libdevice.10.bc /home/luser/miniforge3/envs/stcon4/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/
+1769  mkdir /home/luser/miniforge3/envs/stcon4/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/libdevice
+1770  mv /home/luser/miniforge3/envs/stcon4/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/libdevice.10.bc /home/luser/miniforge3/envs/stcon4/lib/python3.11/site-packages/tensorflow/include/third_party/gpus/cuda/nvvm/libdevice/
+
+
