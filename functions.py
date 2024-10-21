@@ -527,7 +527,7 @@ def extract_all_LAI_from_RAS_file(datapath_filename, image_length, image_width):
     all_lai = all_lai.reshape(cluster_len, image_length, image_width)
     return all_lai
 
-def extract_spec_LAI_from_RAS_file(datapath_filename, cluster_ind, image_length, image_width):
+def extract_spec_LAI_from_RAS_file_previous(datapath_filename, cluster_ind, image_length, image_width):
     file = open(datapath_filename, "r")
     a = np.fromfile(file, dtype=np.int16)
     #print("a.shape", a.shape)
@@ -556,6 +556,38 @@ def extract_spec_LAI_from_RAS_file(datapath_filename, cluster_ind, image_length,
     #all_lai = np.append(all_lai, lai)
     #all_lai = all_lai.reshape(cluster_len, image_length, image_width)
     return lai
+
+
+def extract_spec_LAI_from_RAS_file(datapath_filename, cluster_ind, image_length, image_width):
+    file = open(datapath_filename, "r")
+    a = np.fromfile(file, dtype=np.int16)
+    #print("a.shape", a.shape)
+    cluster_len = a.shape[0] // (image_width * image_width)
+    #print("cluster_len", cluster_len)
+    all_lai = np.array([])
+    #for select_image in range(cluster_len):
+
+    img = a[cluster_ind*(image_length*image_width):(cluster_ind+1)*(image_length*image_width)].reshape(image_length,image_width)
+    
+    mask = img <= 0
+    negvals = img[mask]
+    
+    # Temporary, for getting first digits without errors
+    img[mask] = 1
+    
+    # Get first 3 digits
+    #img = img * 10**(4 - np.log10(img).astype(int)) // 100
+    #img = img // 100
+
+    lai = img / 1000
+    
+    # Set back to old values
+    lai[mask] = negvals
+    
+    #all_lai = np.append(all_lai, lai)
+    #all_lai = all_lai.reshape(cluster_len, image_length, image_width)
+    return lai
+
 
 def get_cluster_length(datapath_filename, image_length, image_width):
     file = open(datapath_filename, "r")
