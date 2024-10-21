@@ -15,6 +15,7 @@ import matplotlib.image as mpimg
 
 _errstr = "Mode is unknown or incompatible with input array shape."
 
+
 def bytescale(data, cmin=None, cmax=None, high=255, low=0):
     if data.dtype == np.uint8:
         return data
