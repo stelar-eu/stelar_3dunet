@@ -1,0 +1,70 @@
+wget --no-check-certificate link
+
+curl --form 'file=@/path/to/file' https://drama.code.unibw-muenchen.de -k
+
+
+
+https://drama.code.unibw-muenchen.de/file/h7inc7jBJXOqZwP9/hlGSXA8CAzoxIFWj/FLOWERING_LEGUMES.zip
+
+https://drama.code.unibw-muenchen.de/file/fOQvkfKWhXmoKQEy/AHaPXKxA46j20kGO/FOREST.zip
+
+https://drama.code.unibw-muenchen.de/file/YSfm3ggOyB0PLuAB/MRmUQvgJL8o14Mki/GRAIN_MAIZE.zip
+
+https://drama.code.unibw-muenchen.de/file/ajiqAYCKSWukMNgq/IOV6GzJ3y5y7DX2z/GRASSLAND.zip
+
+https://drama.code.unibw-muenchen.de/file/egjtk931kTdjtMcZ/z3ssilHt7fy1GCWX/HOPS.zip
+
+https://drama.code.unibw-muenchen.de/file/Rgql3ba19fPJADRL/5Fz9Okm9qw2dxuUW/LEGUMES.zip
+
+https://drama.code.unibw-muenchen.de/file/JZG7vaDkQhPKL15h/eNYgWxlqn8ZPozzV/PERMANENT_PLANTATIONS.zip
+
+https://drama.code.unibw-muenchen.de/file/OWflxmdNIxeIa4Sh/N13SFeb7urgz728V/PLASTIC.zip
+
+
+
+
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/GVmYRA19C9ioMiAt/8o1UKG4V3kCtNHch/POTATO.zip
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/7tYlGsn7jRu1YIIK/pu3mgcsY4i73cGt6/PUMPKIN.zip
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/KRgIe8ZsKfjNWFYj/RL8j6RXYigiLE4xz/SILAGE_MAIZE.zip
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/tD6QQzK6uZl18bF5/Fo3IwGAJbzyBDPWl/SOY.zip
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/jOApr4LfDZq8lgjP/lcYGnu3PF9rREHVD/SPRING_BARLEY.zip
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/6AX2642pRB6RrFFO/KAFt1EE6cRA1wPWI/SPRING_OAT.zip
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/owV8ilRHAoRW2U2f/Qc4QWn8psOEzxJtt/SPRING_RAPESEED.zip
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/VrfzdXVQpyi7jDbq/IswjbP4TsGQlkvGV/SPRING_TRITICALE.zip
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/rnnAusOwXly5eFip/VfdwMZvjn5DsuNvF/SPRING_WHEAT.zip
+
+
+unzip POTATO.zip 
+unzip PUMPKIN.zip 
+unzip SILAGE_MAIZE.zip 
+unzip SOY.zip 
+unzip SPRING_BARLEY.zip 
+unzip SPRING_OAT.zip 
+unzip SPRING_RAPESEED.zip 
+unzip SPRING_TRITICALE.zip 
+unzip SPRING_WHEAT.zip 
+
+
+
+unzip WINTER_OTHER_CEREALS.zip
+unzip WINTER_RAPESEED.zip
+unzip WINTER_RYE.zip
+unzip WINTER_TRITICALE.zip
+unzip WINTER_WHEAT.zip
+
+
+
+
+To download LAI and Labels:
+
+Dear all,
+
+I have uploaded the dataset and the labels to the unibw share. To quickly download the dataset and labels required for STELAR run the below commands one after the other.  After that you will get the files LAI.zip and vista_labes_aligned.npy
+
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/mAqvK9FyfZxfLGTr/ILNadyMPqlXZi3Yk/LAI.zip
+
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/f1WLWSPHwMPBpvvS/tkCwGGWZvcs0c1So/vista_labes_aligned.npy
+
+Then follow the instructions for data preparation in the repository : https://github.com/stelar-eu/stelar_3dunet 
+
+You just have to clone the repository, make a few directories and run a python file as mentioned in the repository. Then you will have time series LAI and their labels ready. 
