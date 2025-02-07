@@ -101,7 +101,6 @@ Below are the results:
 
 ### Intersection over union for crop types
 
-<img src="./showcase/small_scale_results/iou_exp0.png" alt="iou_exp0" width="600">
 
 
 #### Qualitative results : 
@@ -148,7 +147,6 @@ model 11:
 
 ### Intersection over union for crop types
 
-<img src="./showcase/iou/exp1_iou.png" alt="exp1_iou" width="600">
 
 
 TOo plot ther IOU for experiment 1, refer to the jupyter notebook `ensamble_quantitative analysis_of_results_exp1.ipynb`
@@ -197,12 +195,10 @@ In order to plot the inputs and outputs of this experiment with and without miss
 
 ### Intersection over union for crop types
 
-<img src="./showcase/iou/exp2_iou_no_cloud_interpol.png" alt="exp1_iou" width="600">
 
 
 ### F1 score
 
-<img src="./showcase/f1_score/exp2_f1_no_cloud_interpol.png" alt="exp1_iou" width="600">
 
 For quantitive plots of this experimet check the jupyter notebook `ensamble_quantitative analysis_of_results_exp2.ipynb`. 
 

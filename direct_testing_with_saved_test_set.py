@@ -34,7 +34,7 @@ export CUDA_VISIBLE_DEVICES=3
 conda deactivate
 conda deactivate
 conda activate stcon4
-cd stelar_3dunet_w/
+cd stelar_3dunet/
 python3 direct_testing_with_saved_test_set.py
 
 
@@ -189,7 +189,7 @@ for test_img_number in range(290):
                 my_model_1 = load_model('./storage/data_gen_model/checkpoints/3D_unet_res_labels_'+vista_crop_dict[chosen_crop_types_list[0]]+'_'+vista_crop_dict[chosen_crop_types_list[1]]+'_'+vista_crop_dict[chosen_crop_types_list[2]]+'_epoch_'+str(num_epochs)+'.h5', compile=False)
 
             else:
-                my_model_1 = load_model('/home/luser/stelar_3dunet_w/storage/saved_model/3D_unet_res_labels_'+vista_crop_dict[chosen_crop_types_list[0]]+'_'+vista_crop_dict[chosen_crop_types_list[1]]+'_'+vista_crop_dict[chosen_crop_types_list[2]]+'_epoch_'+str(num_epochs)+'.h5', compile=False)
+                my_model_1 = load_model('/home/luser/stelar_3dunet/storage/saved_model/3D_unet_res_labels_'+vista_crop_dict[chosen_crop_types_list[0]]+'_'+vista_crop_dict[chosen_crop_types_list[1]]+'_'+vista_crop_dict[chosen_crop_types_list[2]]+'_epoch_'+str(num_epochs)+'.h5', compile=False)
 
             test_pred1 = my_model_1.predict(test_img_input1)
             del my_model_1
