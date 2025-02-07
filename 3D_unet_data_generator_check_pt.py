@@ -267,92 +267,14 @@ counted = 0
 for crop_no in chosen_crop_types_list:
     chosen_crop_type = vista_crop_dict[crop_no]
     print("chosen_crop_type", chosen_crop_type)
-    '''input_img = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/train_'+vista_crop_dict[crop_no]+'.tif')
-    input_mask = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/lab_'+vista_crop_dict[crop_no]+'.tif').astype(np.uint8)
 
-    print("input_img.shape", input_img.shape)
-    print("input_mask.shape", input_mask.shape)'''
+    input_img_f = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/train'+vista_crop_dict[crop_no]+'n.tif')#[:9000]
+    input_mask_f = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/lab'+vista_crop_dict[crop_no]+'n.tif').astype(np.uint8)#[:9000]
 
-    input_img0 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/train'+vista_crop_dict[crop_no]+'n.tif')#[:9000]
-    input_mask0 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/lab'+vista_crop_dict[crop_no]+'n.tif').astype(np.uint8)#[:9000]
-    print("input_img0.shape", input_img0.shape)
-    print("input_mask0.shape", input_mask0.shape)
+    drop = int(len(input_img_f)*sampling_group_fractions[counted]) - 2
 
-
-    '''input_img1 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/train'+vista_crop_dict[crop_no]+'n1.tif')
-    input_mask1 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/lab'+vista_crop_dict[crop_no]+'n1.tif').astype(np.uint8)
-    print("input_img1.shape", input_img1.shape)
-    print("input_mask1.shape", input_mask1.shape)
-
-    input_img2 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/train'+vista_crop_dict[crop_no]+'n2.tif')
-    input_mask2 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/lab'+vista_crop_dict[crop_no]+'n2.tif').astype(np.uint8)
-    print("input_img2.shape", input_img2.shape)
-    print("input_mask2.shape", input_mask2.shape)'''
-
-    '''input_img3 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/train'+vista_crop_dict[crop_no]+'n3.tif')
-    input_mask3 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/lab'+vista_crop_dict[crop_no]+'n3.tif').astype(np.uint8)
-    print("input_img3.shape", input_img3.shape)
-    print("input_mask3.shape", input_mask3.shape)
-
-    input_img4 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/train'+vista_crop_dict[crop_no]+'n4.tif')
-    input_mask4 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/lab'+vista_crop_dict[crop_no]+'n4.tif').astype(np.uint8)
-    print("input_img4.shape", input_img4.shape)
-    print("input_mask4.shape", input_mask4.shape)
-
-    input_img5 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/train'+vista_crop_dict[crop_no]+'n5.tif')
-    input_mask5 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/lab'+vista_crop_dict[crop_no]+'n5.tif').astype(np.uint8)
-    print("input_img5.shape", input_img5.shape)
-    print("input_mask5.shape", input_mask5.shape)
-
-    input_img6 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/train'+vista_crop_dict[crop_no]+'n6.tif')
-    input_mask6 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/lab'+vista_crop_dict[crop_no]+'n6.tif').astype(np.uint8)
-    print("input_img6.shape", input_img6.shape)
-    print("input_mask6.shape", input_mask6.shape)
-
-    input_img7 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/train'+vista_crop_dict[crop_no]+'n7.tif')
-    input_mask7 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/lab'+vista_crop_dict[crop_no]+'n7.tif').astype(np.uint8)
-    print("input_img7.shape", input_img7.shape)
-    print("input_mask7.shape", input_mask7.shape)
-
-    input_img8 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/train'+vista_crop_dict[crop_no]+'n8.tif')
-    input_mask8 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/lab'+vista_crop_dict[crop_no]+'n8.tif').astype(np.uint8)
-    print("input_img8.shape", input_img8.shape)
-    print("input_mask8.shape", input_mask8.shape)
-
-    input_img9 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/train'+vista_crop_dict[crop_no]+'n9.tif')
-    input_mask9 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/lab'+vista_crop_dict[crop_no]+'n9.tif').astype(np.uint8)
-    print("input_img9.shape", input_img9.shape)
-    print("input_mask9.shape", input_mask9.shape)
-
-    input_img10 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/train'+vista_crop_dict[crop_no]+'n10.tif')
-    input_mask10 = io.imread('./storage/per_crop_data_labels/'+vista_crop_dict[crop_no]+'/lab'+vista_crop_dict[crop_no]+'n10.tif').astype(np.uint8)
-    print("input_img9.shape", input_img9.shape)
-    print("input_mask9.shape", input_mask9.shape)'''
-
-
-    '''input_img_f = np.concatenate((input_img, input_img0, input_img1, input_img2, input_img3, input_img4, input_img5, input_img6, input_img7, input_img8, input_img9, input_img10), axis=0)
-    input_mask_f = np.concatenate((input_mask, input_mask0, input_mask1, input_mask2, input_mask3, input_mask4, input_mask5, input_mask6, input_mask7, input_mask8, input_mask9, input_mask10), axis=0)'''
-
-    """input_img_f = np.concatenate(( input_img0), axis=0)
-    input_mask_f = np.concatenate(( input_mask0), axis=0)"""
-
-    input_img_f =input_img0
-    input_mask_f = input_mask0
-
-    '''input_img_f = np.concatenate((input_img, input_img0, input_img1, input_img2, input_img3, input_img4, input_img5, input_img6, input_img7, input_img8, input_img9), axis=0)
-    input_mask_f = np.concatenate((input_mask, input_mask0, input_mask1, input_mask2, input_mask3, input_mask4, input_mask5, input_mask6, input_mask7, input_mask8, input_mask9), axis=0)'''
-
-    bis = int(len(input_img_f)*sampling_group_fractions[counted]) - 2
-
-    print("bis", bis)
-    print("before input_img_f.shape", input_img_f.shape)
-    print("before input_mask_f.shape", input_mask_f.shape)
-
-    input_img_f = input_img_f[:bis]
-    input_mask_f = input_mask_f[:bis]
-
-    print("after input_img_f.shape", input_img_f.shape)
-    print("after input_mask_f.shape", input_mask_f.shape)
+    input_img_f = input_img_f[:drop]
+    input_mask_f = input_mask_f[:drop]
 
     all_input_img_f.append(input_img_f)
     all_input_mask_f.append(input_mask_f)
@@ -506,8 +428,8 @@ del train_mask
 del train_img
 del input_img
 del input_mask
-del input_img0 
-del input_mask0
+#del input_img_f 
+#del input_mask0
 '''del input_img1
 del input_mask1
 del input_img2
