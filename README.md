@@ -263,7 +263,69 @@ training: `python 3D_unet_data_generator_check_pt.py`
 
 test set sampling `python traiing_data_per_crop_test_set_create.py`
 
+test set tune : `python test_set_saving_10000_spt_points_simpler`
+
 test set creating : `direct_testing_with_saved_test_set.py`
 
 
-for box plots : 
+for box plots : `python ensamble_quantitative_analysis_of_results_exp2.py`
+
+
+
+
+
+Evaluating after training :
+
+Winter
+```
+export CUDA_VISIBLE_DEVICES=1
+cd stelar_3dunet/
+conda activate dt2
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 33
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 34
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 35
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 36
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 37
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 40
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 41
+
+conda deactivate
+conda deactivate
+conda activate stcon4
+
+python3 test_set_saving_10000_spt_points_simpler.py --g 1 --h 1 --crop_1 34 --crop_2 37 --crop_3 40
+python3 test_set_saving_10000_spt_points_simpler.py --g 1 --h 1 --crop_1 33 --crop_2 36 --crop_3 41
+
+python3 direct_testing_with_saved_test_set.py --g 1 --h 1
+
+python ensamble_quantitative_analysis_of_results_exp2.py
+
+
+
+Spring
+```
+export CUDA_VISIBLE_DEVICES=1
+cd stelar_3dunet/
+conda activate dt2
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 33
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 34
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 35
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 36
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 37
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 40
+python traiing_data_per_crop_test_set_create.py --g 1 --h 1  --chosen_crop_types 41
+
+conda deactivate
+conda deactivate
+conda activate stcon4
+
+python3 test_set_saving_10000_spt_points_simpler.py --g 1 --h 1 --crop_1 34 --crop_2 37 --crop_3 40
+python3 test_set_saving_10000_spt_points_simpler.py --g 1 --h 1 --crop_1 33 --crop_2 36 --crop_3 41
+
+python3 direct_testing_with_saved_test_set.py --g 1 --h 1
+
+python ensamble_quantitative_analysis_of_results_exp2.py
+
+
+
+```
