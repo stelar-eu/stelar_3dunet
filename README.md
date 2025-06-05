@@ -329,3 +329,86 @@ python ensamble_quantitative_analysis_of_results_exp2.py
 
 
 ```
+
+
+
+#############  final method ################
+
+ 
+
+$ saving the data after extracting zip files $
+
+export CUDA_VISIBLE_DEVICES=1
+cd stelar_3dunet
+conda activate stcon4
+python data_saving_france_RAS_npy.py
+
+
+
+$ sampling the data and saving  $
+export CUDA_VISIBLE_DEVICES=1
+cd stelar_3dunet/
+conda activate dt2
+python traiing_data_per_crop_full.py --g 1 --h 1 --chosen_crop_types 2
+
+
+$ train the model  $
+
+export CUDA_VISIBLE_DEVICES=6
+conda deactivate
+conda deactivate
+conda activate stcon4
+cd stelar_3dunet/
+python3 3D_unet_data_generator_check_pt_data_effi.py --g 3 --h 3 --crop_1 33 --crop_2 36 --crop_3 41 --fine_tune True --cl_weights False
+
+
+
+Evaluation : 
+
+$ test set saving $
+
+export CUDA_VISIBLE_DEVICES=1
+cd stelar_3dunet/
+conda activate dt2
+python traiing_data_per_crop_full.py --g 1 --h 1 --chosen_crop_types 2
+
+$ step 2 of test set saving $
+export CUDA_VISIBLE_DEVICES=4
+conda deactivate
+conda deactivate
+cd stelar_3dunet/
+conda activate stcon4
+python3 test_set_saving_10000_spt_points_simpler_full.py --crop_1 4 --crop_2 7 --crop_3 9
+
+
+$Evaluating$
+
+
+export CUDA_VISIBLE_DEVICES=1
+conda deactivate
+conda deactivate
+conda activate stcon4
+cd stelar_3dunet/
+python3 direct_testing_with_saved_test_set_full.py --season winter
+
+
+$ plotting $
+
+
+export CUDA_VISIBLE_DEVICES=6
+conda deactivate
+conda deactivate
+conda activate stcon4
+cd stelar_3dunet/
+python ensamble_quantitative_analysis_of_results_exp2.py
+
+
+
+#############  final method ################
+
+
+
+
+
+#############  without oversampling ################
+

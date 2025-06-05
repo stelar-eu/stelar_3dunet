@@ -12,8 +12,8 @@ conda install conda-forge::opencv
 
 '''
 
-export CUDA_VISIBLE_DEVICES=0
-cd /mdadm0/chethan_krishnamurth/stelar_3dunet/
+export CUDA_VISIBLE_DEVICES=1
+cd stelar_3dunet
 conda activate stcon4
 python data_saving_france_RAS_npy.py
 
@@ -59,11 +59,11 @@ for datapath_filename in filepaths:
         
         test[test<0] = 0  
         #for i in range(len(test)):
-
+        #print("test.max(), test.min()", test.max(), test.min())
         print("test no : "+str(cluster_ind)+" : ", test.shape)
         #save numpy array as .npy file
         print("datapath_filename[-14:-4]+'_measure_'+str(i) : ", datapath_filename[-14:-4]+'_measure_'+str(cluster_ind).zfill(2))
-        #np.save('./dataset/france2/processed_lai_npy/'+datapath_filename[-14:-4]+'_measure_'+str(cluster_ind).zfill(2)+'.npy', test)
+        np.save('./dataset/france2/processed_lai_npy/'+datapath_filename[-14:-4]+'_measure_'+str(cluster_ind).zfill(2)+'.npy', test)
 
 
 print("len(test)", len(test))
