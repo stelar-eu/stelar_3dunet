@@ -36,14 +36,14 @@ conda deactivate
 conda deactivate
 conda activate stcon4
 cd stelar_3dunet/
-python3 3D_unet_data_generator_check_pt_data_effi.py --g 3 --h 3 --crop_1 33 --crop_2 36 --crop_3 41
+python3 3D_unet_data_generator_check_pt_data_effi.py --g 3 --h 3 --crop_1 33 --crop_2 36 --crop_3 41 --season winter
 
 export CUDA_VISIBLE_DEVICES=2
 conda deactivate
 conda deactivate
 conda activate stcon4
 cd stelar_3dunet/
-python3 3D_unet_data_generator_check_pt_data_effi.py --g 3 --h 3 --crop_1 34 --crop_2 37 --crop_3 40
+python3 3D_unet_data_generator_check_pt_data_effi.py --g 3 --h 3 --crop_1 34 --crop_2 37 --crop_3 40 --season winter
 
 
 
@@ -66,7 +66,7 @@ conda deactivate
 conda deactivate
 conda activate stcon4
 cd stelar_3dunet/
-python3 3D_unet_data_generator_check_pt_data_effi.py --g 1 --h 1 --crop_1 2 --crop_2 15 --crop_3 20 --fine_tune True
+python3 3D_unet_data_generator_check_pt_data_effi.py --g 1 --h 1 --crop_1 2 --crop_2 15 --crop_3 20  --season spring
 
 
 export CUDA_VISIBLE_DEVICES=4
@@ -74,7 +74,7 @@ conda deactivate
 conda deactivate
 conda activate stcon4
 cd stelar_3dunet/
-python3 3D_unet_data_generator_check_pt_data_effi.py --g 1 --h 1 --crop_1 21 --crop_2 23 --crop_3 28 --fine_tune True
+python3 3D_unet_data_generator_check_pt_data_effi.py --g 1 --h 1 --crop_1 21 --crop_2 23 --crop_3 28  --season spring
 
 
 summer_autumn crops
@@ -89,20 +89,20 @@ summer_autumn crops
 
 
     
-export CUDA_VISIBLE_DEVICES=3
+export CUDA_VISIBLE_DEVICES=5
 conda deactivate
 conda deactivate
 conda activate stcon4
 cd stelar_3dunet/
-python3 3D_unet_data_generator_check_pt_data_effi.py --g 1 --h 1 --crop_1 8 --crop_2 9 --crop_3 30
+python3 3D_unet_data_generator_check_pt_data_effi.py --g 1 --h 1 --crop_1 8 --crop_2 9 --crop_3 30 --season summer_autumn
 
 
-export CUDA_VISIBLE_DEVICES=4
+export CUDA_VISIBLE_DEVICES=6
 conda deactivate
 conda deactivate
 conda activate stcon4
 cd stelar_3dunet/
-python3 3D_unet_data_generator_check_pt_data_effi.py --g 1 --h 1 --crop_1 7 --crop_2 18 --crop_3 19
+python3 3D_unet_data_generator_check_pt_data_effi.py --g 1 --h 1 --crop_1 7 --crop_2 18 --crop_3 19 --season summer_autumn
 
 
 
@@ -128,12 +128,12 @@ FLAX((4)
 FOREST(7)
 GRASSLAND(9)
 
-export CUDA_VISIBLE_DEVICES=5
+export CUDA_VISIBLE_DEVICES=7
 conda deactivate
 conda deactivate
 conda activate stcon4
 cd stelar_3dunet/
-python3 3D_unet_data_generator_check_pt_data_effi.py --g 1 --h 1 --crop_1 4 --crop_2 7 --crop_3 9
+python3 3D_unet_data_generator_check_pt_data_effi.py --g 1 --h 1 --crop_1 4 --crop_2 7 --crop_3 9 --season winter_spring_summer
 
 
 '''
@@ -160,6 +160,9 @@ parser.add_argument('--crop_1', type=int, default=33)
 parser.add_argument('--crop_2', type=int, default=36)
 parser.add_argument('--crop_3', type=int, default=41)
 
+parser.add_argument('--season', type=str, default=0, help='input season')
+
+
 parser.add_argument('--fine_tune', type=bool, default=False)
 parser.add_argument('--cl_weights', type=bool, default=False)
 
@@ -170,6 +173,7 @@ g, h = args.g, args.h
 chosen_crop_types = [args.crop_1, args.crop_2, args.crop_3]
 fine_tune = args.fine_tune
 cl_weights = args.cl_weights
+season = args.season
 
 
 
@@ -255,7 +259,15 @@ class Lazy3DUNetGenerator(Sequence):
             img = np.stack((img,) * 3, axis=-1)
             #img = preprocess_input(img)
             mask = np.expand_dims(mask, axis=-1)
-
+            ######lets see
+            mi = 0
+            for k in crop_types_all_list:
+                if k in chosen_crop_types:
+                    mask[mask==k]=mi+1
+                    mi+=1
+                else:
+                    mask[mask==k]=0
+            ######lets see
             mask_cat = to_categorical(mask, num_classes=self.num_classes)
             X_batch.append(img)
             y_batch.append(mask_cat)
@@ -327,6 +339,22 @@ for crop_id in chosen_crop_types:
     crop_name = vista_crop_dict[crop_id]
     image_paths.extend(sorted(glob(f"{PATCH_SAVE_DIR.format(g=g, h=h)}/images/{crop_name}/*.tif")))
     mask_paths.extend(sorted(glob(f"{PATCH_SAVE_DIR.format(g=g, h=h)}/masks/{crop_name}/*.tif")))
+
+'''for i in rang(3):
+    image_paths.extend(sorted(glob(f"{PATCH_SAVE_DIR.format(g=g, h=h)}/images/{crop_name}/*.tif")))
+    mask_paths.extend(sorted(glob(f"{PATCH_SAVE_DIR.format(g=g, h=h)}/masks/{crop_name}/*.tif")))'''
+
+
+print("did it ?")
+
+image_paths.extend(sorted(glob(f"{PATCH_SAVE_DIR.format(g=g, h=h)}/images/{season}/*.tif")))
+mask_paths.extend(sorted(glob(f"{PATCH_SAVE_DIR.format(g=g, h=h)}/masks/{season}/*.tif")))
+
+
+'''image_paths.extend(sorted(glob(f"/data1/chethan/stelar_3dunet/storage/patches/g4_h4/images/{season}*.tif")))
+mask_paths.extend(sorted(glob(f"/data1/chethan/stelar_3dunet/storage/patches/g4_h4/masks/{season}*.tif")))'''
+
+print(" it did ?")
 
 
 X_train, X_val, y_train, y_val = train_test_split(image_paths, mask_paths, test_size=0.1, random_state=42)
