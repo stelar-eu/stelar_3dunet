@@ -1,0 +1,6 @@
+To install docker for linux
+
+https://www.youtube.com/watch?v=cqbh-RneBlk
+
+
+dpetrou@tuc.gr
