@@ -31,7 +31,7 @@ import tifffile
 '''
 
 
-export CUDA_VISIBLE_DEVICES=4
+export CUDA_VISIBLE_DEVICES=2
 conda deactivate
 conda deactivate
 conda activate stcon4
@@ -39,7 +39,7 @@ cd stelar_3dunet/
 python3 direct_testing_with_saved_test_set_full.py --season winter
 
 
-export CUDA_VISIBLE_DEVICES=2
+export CUDA_VISIBLE_DEVICES=3
 conda deactivate
 conda deactivate
 conda activate stcon4
@@ -48,7 +48,7 @@ python3 direct_testing_with_saved_test_set_full.py --season spring
 
 
 
-export CUDA_VISIBLE_DEVICES=5
+export CUDA_VISIBLE_DEVICES=4
 conda deactivate
 conda deactivate
 conda activate stcon4
@@ -288,14 +288,14 @@ for test_img_number in range(300):
         
         test_img_input1 = test_img_input # no preprocessing for spring and winter
 
-        if season == "spring":
+        '''if season == "spring":
             test_img_input1 = test_img_input
         if season == "winter":
             test_img_input1 = test_img_input
         if season == "winter_spring_summer":
             test_img_input1 = test_img_input #preprocess_input(test_img_input) 
         if season == "summer_autumn":
-            test_img_input1 = test_img_input #preprocess_input(test_img_input) 
+            test_img_input1 = test_img_input #preprocess_input(test_img_input) '''
             
 
         ground_truth_flattened = ground_truth_1[0,:,:]
