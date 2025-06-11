@@ -2,6 +2,16 @@ wget --no-check-certificate link
 
 curl --form 'file=@/path/to/file' https://drama.code.unibw-muenchen.de -k
 
+curl --form 'file=@/data1/chethan/stelar_3dunet/checkpoints.tar.gz' https://drama.code.unibw-muenchen.de -k
+
+
+curl --form 'file=@/data1/chethan/stelar_3dunet/dataset/france2/processed_lai_npy.tar.gz' https://drama.code.unibw-muenchen.de -k
+
+
+
+curl --form 'file=@/data1/chethan/stelar_3dunet/checkpoints_f1_working_backup.tar.gz' https://drama.code.unibw-muenchen.de -k
+
+
 
 
 https://drama.code.unibw-muenchen.de/file/h7inc7jBJXOqZwP9/hlGSXA8CAzoxIFWj/FLOWERING_LEGUMES.zip
@@ -32,6 +42,19 @@ wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/6AX26
 wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/owV8ilRHAoRW2U2f/Qc4QWn8psOEzxJtt/SPRING_RAPESEED.zip
 wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/VrfzdXVQpyi7jDbq/IswjbP4TsGQlkvGV/SPRING_TRITICALE.zip
 wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/rnnAusOwXly5eFip/VfdwMZvjn5DsuNvF/SPRING_WHEAT.zip
+
+
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/mmFPpeopoZSLBhi4/arIjWQjUVi9VGEO9/checkpoints.tar.gz 
+
+
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/Bj9tDSdNZ0BO0EdA/3W7ljPQhUzQa97b1/vista_patch_exp0.tar.gz
+
+
+
+wget --no-check-certificate link https://drama.code.unibw-muenchen.de/file/wPk3vHGLosgObaCM/Ja9Dy8rRPTxERq5u/checkpoints_f1_working_backup.tar.gz
+
+
+
 
 
 unzip POTATO.zip 
